@@ -1,0 +1,11 @@
+package boxPush3d;
+
+public class Main {
+	
+	public static void main(String[] args)
+	{	
+		GameInstance gameInstance = new GameInstance();
+		gameInstance.run();
+	}
+
+}
