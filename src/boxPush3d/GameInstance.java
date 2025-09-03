@@ -4,17 +4,37 @@ import static org.lwjgl.glfw.GLFW.glfwPollEvents;
 import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
 import static org.lwjgl.opengl.GL40.*;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+
 import boxPush3d.global.Objects;
+import boxPush3d.global.Settings;
 import boxPush3d.input.Input;
 
 public class GameInstance {
 	
 	GameScene gs;
+	private List<String> levels;
+	private int levelIndex = 0;
 	
-	public GameInstance()
+	public GameInstance() throws IOException
 	{
+		levels = Files.readAllLines(Paths.get("resources/levels.txt"), StandardCharsets.UTF_8);
+		
 		Objects.create();
-		gs = new GameScene();
+		loadLevel();
+	}
+	
+	private void loadLevel()
+	{
+		try {
+			gs = new GameScene(Files.readAllLines(Paths.get("resources/levels/" + levels.get(levelIndex) + ".txt"), StandardCharsets.UTF_8));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void run()
@@ -77,9 +97,15 @@ public class GameInstance {
 	{
 		Input.update();
 		gs.update();
-		if(gs.isLevelCompleted())
+		if(gs.isLevelCompleted() && gs.loadTimer > Settings.sceneLoadTime)
 		{
-			System.exit(0);
+			levelIndex++;
+			if(levelIndex >= levels.size())
+			{
+				System.out.println("Win!");
+				System.exit(0);
+			}
+			loadLevel();
 		}
 	}
 

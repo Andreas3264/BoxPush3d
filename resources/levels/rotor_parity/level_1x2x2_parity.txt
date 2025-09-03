@@ -1,0 +1,30 @@
+
+
+gnd -4 0 1
+gnd -3 0 1
+gnd -2 0 1
+
+gnd -4 0 0
+gnd -3 0 0
+gnd -2 0 0
+gnd -1 0 0
+gnd 0 0 0
+gnd 1 0 0
+gnd 2 0 0
+
+gnd 1 1 0
+gnd 1 2 1
+
+gnd 2 1 1
+gnd 2 2 1
+
+end 3 0 0
+end 3 0 1
+
+dth 4 0 0
+dth 4 0 1
+
+r-ye -1 1 0
+r-ye -1 2 0
+r-ye -2 1 0
+r-ye -2 2 0
