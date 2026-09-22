@@ -13,10 +13,4 @@ public class Box {
 		this.ySize = ySize;
 		this.zSize = zSize;
 	}
-	
-	public AABB getAABB()
-	{
-		return new AABB(x - xSize * 0.5, y - ySize * 0.5, z - zSize * 0.5, x + xSize * 0.5, y + ySize * 0.5, z + zSize * 0.5);
-	}
-
 }

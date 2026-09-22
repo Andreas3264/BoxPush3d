@@ -31,7 +31,7 @@ public class Objects {
 		blueBox = Texture.get("resources/textures/Blue box.png");
 		cyanBox = Texture.get("resources/textures/Cyan box.png");
 		yellowBox = Texture.get("resources/textures/Yellow box.png");
-		magentaBox = Texture.get("resources/textures/MAgenta box.png");
+		magentaBox = Texture.get("resources/textures/Magenta box.png");
 		
 		ground = Texture.get("resources/textures/Ground.png");
 		goal = Texture.get("resources/textures/Goal.png");

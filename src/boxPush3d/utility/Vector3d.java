@@ -61,7 +61,7 @@ public class Vector3d {
 	
 	public Vector3d normalized()
 	{
-		return this.multiply(1d / (this.magnitude() + 0.000001d));
+		return this.multiply(1d / (Math.max(this.magnitude(), 0.000001d)));
 	}
 	
 	public Vector3d cross(Vector3d other)
