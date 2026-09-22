@@ -1,5 +1,8 @@
 #!/bin/bash
 
 cd "$(dirname "$0")"
+source scripts/build.conf
 
-java -XX:+UseG1GC -XstartOnFirstThread -cp "library/*:bin/" "boxPush3d.Main"
+set -e # stop on error
+
+./scripts/launch_source.sh
